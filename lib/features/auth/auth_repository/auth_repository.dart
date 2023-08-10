@@ -1,7 +1,7 @@
 class AuthRepository {
   Future<bool> login(String userName, String password) async {
-    String isValidName = 'ambadi@gmail.com';
-    String isPassword = 'password';
+    String isValidName = 'glitzadmin@gmail.com';
+    String isPassword = 'Gs0r0e7!';
 
     bool isValidLogin() {
       bool isValidUserID = false;
@@ -17,7 +17,7 @@ class AuthRepository {
       return isValidLogin;
     }
 
-    await Future.delayed(const Duration(seconds: 3));
+    await Future.delayed(const Duration(seconds: 1));
     return isValidLogin();
   }
 }

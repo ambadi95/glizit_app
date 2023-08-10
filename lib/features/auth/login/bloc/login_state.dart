@@ -1,11 +1,12 @@
-import '../../form_submission_status.dart';
+import '../../auth_form_status/form_submission_status.dart';
 
 class LoginState {
   final String? username;
   final String? password;
   final FormSubmissionStatus formStatus;
 
-  bool get isValidUserId => username!.length > 3;
+  bool get isValidUserId => RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(username!);
   bool get isValidPassword => password!.length > 6;
 
   LoginState(

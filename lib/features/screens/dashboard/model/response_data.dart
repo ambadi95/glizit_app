@@ -1,14 +1,30 @@
 // To parse this JSON data, do
 //
-//     final responseData = responseDataFromMap(jsonString);
+//     final postDataUiModel = postDataUiModelFromMap(jsonString);
 
 import 'dart:convert';
 
-List<ResponseData> responseDataFromMap(String str) => List<ResponseData>.from(json.decode(str).map((x) => ResponseData.fromMap(x)));
+PostDataUiModel postDataUiModelFromMap(String str) => PostDataUiModel.fromMap(json.decode(str));
 
-String responseDataToMap(List<ResponseData> data) => json.encode(List<dynamic>.from(data.map((x) => x.toMap())));
+String postDataUiModelToMap(PostDataUiModel data) => json.encode(data.toMap());
 
-class ResponseData {
+class PostDataUiModel {
+  final List<Post>? posts;
+
+  PostDataUiModel({
+    this.posts,
+  });
+
+  factory PostDataUiModel.fromMap(Map<String, dynamic> json) => PostDataUiModel(
+    posts: json["posts"] == null ? [] : List<Post>.from(json["posts"]!.map((x) => Post.fromMap(x))),
+  );
+
+  Map<String, dynamic> toMap() => {
+    "posts": posts == null ? [] : List<dynamic>.from(posts!.map((x) => x.toMap())),
+  };
+}
+
+class Post {
   final String? id;
   final String? title;
   final String? thumbnailUrl;
@@ -21,7 +37,7 @@ class ResponseData {
   final String? subscriber;
   final bool? isLive;
 
-  ResponseData({
+  Post({
     this.id,
     this.title,
     this.thumbnailUrl,
@@ -35,7 +51,7 @@ class ResponseData {
     this.isLive,
   });
 
-  factory ResponseData.fromMap(Map<String, dynamic> json) => ResponseData(
+  factory Post.fromMap(Map<String, dynamic> json) => Post(
     id: json["id"],
     title: json["title"],
     thumbnailUrl: json["thumbnailUrl"],

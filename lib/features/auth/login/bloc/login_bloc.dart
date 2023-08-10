@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:glizit_app/features/auth/form_submission_status.dart';
+import 'package:glizit_app/features/auth/auth_form_status/form_submission_status.dart';
 import 'package:glizit_app/features/auth/login/bloc/login_event.dart';
 import 'package:glizit_app/features/auth/login/bloc/login_state.dart';
 
-import '../../auth_repository.dart';
+import '../../auth_repository/auth_repository.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   final AuthRepository authRepository;
