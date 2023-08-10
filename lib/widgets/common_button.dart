@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
+
+// ignore: must_be_immutable
 class CommonButton extends StatelessWidget {
-  String label;
+  final String label;
   Function()? onTap;
    CommonButton({super.key, this.label = "CLick Here", this.onTap});
 

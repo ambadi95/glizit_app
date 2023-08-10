@@ -93,7 +93,6 @@ class LoginScreen extends StatelessWidget {
               label: "Login",
               onTap: () {
                 if (_formKey.currentState!.validate()) {
-                  print("h3llo");
                   context.read<LoginBloc>().add(LoginSubmitted());
                 }
               },
